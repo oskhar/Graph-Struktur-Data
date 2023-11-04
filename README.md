@@ -1,6 +1,7 @@
 # Graph-Struktur-Data
 
 Modul belajar strukturd data graph
+click [di sini](/teory/graph.pdf) untuk melihat detail teori
 
 ### Kelompok I
 
