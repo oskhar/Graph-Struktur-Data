@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class MainApp {
 
     public static void main(String[] args) {
@@ -12,15 +9,18 @@ public class MainApp {
         Vertex<String> D = new Vertex<>("D");
         Vertex<String> T = new Vertex<>("T");
 
-        S.setNeighbors(new HashMap<>(Map.of(A, 15, B, 12)));
-        A.setNeighbors(new HashMap<>(Map.of(B, 10, C, 12, D, 1)));
-        B.setNeighbors(new HashMap<>(Map.of(D, 14)));
-        C.setNeighbors(new HashMap<>(Map.of(T, 25)));
-        D.setNeighbors(new HashMap<>(Map.of(C, 10, T, 4)));
+        S.addNeighbor(A, 15);
+        S.addNeighbor(B, 12);
+        A.addNeighbor(B, 10);
+        A.addNeighbor(C, 12);
+        A.addNeighbor(D, 1);
+        B.addNeighbor(D, 14);
+        C.addNeighbor(T, 25);
+        D.addNeighbor(C, 10);
+        D.addNeighbor(T, 4);
 
         System.out.print("The Max Flow is: ");
         System.out.println(new FordFulkerson<String>().run(S, T));
 
     }
-
 }
