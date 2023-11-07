@@ -4,7 +4,7 @@ import java.util.List;
 public class Vertex<T> {
     private final T data;
     private boolean visited;
-    private List<Vertex<T>> neighbors = new ArrayList<>();
+    private final List<Vertex<T>> neighbors = new ArrayList<>();
 
     public Vertex(T data) {
         this.data = data;
@@ -32,10 +32,17 @@ public class Vertex<T> {
 
     @Override
     public String toString() {
-        return "Vertex{" +
-                "data=" + data +
-                ", visited=" + visited +
-                ", neighbors=" + neighbors +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Vertex{data=").append(data);
+        sb.append(", visited=").append(visited);
+        sb.append(", neighbors=[");
+        for (Vertex<T> neighbor : neighbors) {
+            sb.append(neighbor.getData()).append(", ");
+        }
+        if (!neighbors.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length());
+        }
+        sb.append("]}");
+        return sb.toString();
     }
 }
