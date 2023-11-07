@@ -12,10 +12,10 @@ public class MainApp {
         Vertex<Integer> v5 = new Vertex<>(5);
         Vertex<Integer> v6 = new Vertex<>(6);
 
-        v0.setNeighbors(List.of(v1, v5, v6));
-        v1.setNeighbors(List.of(v3, v4, v5));
-        v4.setNeighbors(List.of(v2, v6));
-        v6.setNeighbors(List.of(v0));
+        v0.getNeighbors().addAll(List.of(v1, v5, v6));
+        v1.getNeighbors().addAll(List.of(v3, v4, v5));
+        v4.getNeighbors().addAll(List.of(v2, v6));
+        v6.getNeighbors().add(v0);
 
         new BreadthFirstSearch<>(v0).traverse();
 
